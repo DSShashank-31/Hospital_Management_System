@@ -19,6 +19,6 @@ public class PatientController {
 	@PostMapping("/register")
 	public ResponseEntity<PatientDto> registerPatient(@RequestBody PatientDto patientDto)
 	{
-		return new ResponseEntity<PatientDto>(patientService.registePatient(patientDto),HttpStatus.CREATED);
+		return new ResponseEntity<PatientDto>(patientService.registerPatient(patientDto),HttpStatus.CREATED);
 	}
 }

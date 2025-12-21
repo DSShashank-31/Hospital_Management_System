@@ -1,8 +1,6 @@
 package com.DS.HospitalManagementSystem.Dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-
 
 @Data
 public class PatientDto {

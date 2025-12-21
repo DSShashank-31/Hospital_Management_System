@@ -1,9 +1,12 @@
 package com.DS.HospitalManagementSystem.Mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.DS.HospitalManagementSystem.Dto.PatientDto;
 import com.DS.HospitalManagementSystem.Entity.Patient;
 import com.DS.HospitalManagementSystem.Entity.User;
 
+@Component
 public class PatientMapper {
 
 	public static Patient mapToPatient(PatientDto patientDto,User user)
@@ -13,7 +16,7 @@ public class PatientMapper {
 				patient.setAge(patientDto.getAge());
 				patient.setEmail(patientDto.getEmail());
 				patient.setMobile_number(patientDto.getMobile_number());
-				
+				patient.setUser(user);
 				
 		return patient;
 	}
