@@ -3,8 +3,9 @@ package com.DS.HospitalManagementSystem.services.imp;
 
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.DS.HospitalManagementSystem.Dto.PatientDto;
@@ -45,5 +46,11 @@ public class PatientServicesImp implements PatientServices{
 		Patient patient=PatientMapper.mapToPatient(patientDto,user);
 		Patient savedPatient=patientRepo.save(patient);
 		return PatientMapper.mapToPatientDto(savedPatient);
+	}
+
+	@Override
+	public List<Patient> getPatientDetails() {
+		List<Patient> patients=patientRepo.findAll();
+		return patients;
 	}
 }
