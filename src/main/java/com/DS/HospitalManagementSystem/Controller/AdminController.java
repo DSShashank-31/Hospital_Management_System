@@ -47,7 +47,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/createDepartment")
-	public ResponseEntity<String> createDepartment(DepartmentDto departmentDto)
+	public ResponseEntity<String> createDepartment(@RequestBody DepartmentDto departmentDto)
 	{
 		adminService.createDepartment(departmentDto);
 		return ResponseEntity.ok("Department Created Successfully");
