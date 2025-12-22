@@ -9,5 +9,5 @@ import com.DS.HospitalManagementSystem.Entity.Department;
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department,Long>{
 
-	Department findByName(String string);
+	
 }

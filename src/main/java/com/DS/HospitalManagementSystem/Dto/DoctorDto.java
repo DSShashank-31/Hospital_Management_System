@@ -14,5 +14,5 @@ public class DoctorDto {
 	private Long phone_number;
 	private int experience;
 	
-	private String departmentName;
+	private Long departmentId;
 }

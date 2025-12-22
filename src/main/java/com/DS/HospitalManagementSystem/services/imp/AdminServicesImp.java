@@ -36,9 +36,10 @@ public class AdminServicesImp implements AdminServices {
 	private DepartmentMapper departmentMapper;
 	
 	@Override
-	public DoctorDto registerDoctor(DoctorDto doctorDto)
+	public void registerDoctor(DoctorDto doctorDto)
 	{
-		Department department=departmentRepo.findByName(doctorDto.getDepartmentName());
+		Department department=departmentRepo.findById(doctorDto.getDepartmentId())
+				.orElseThrow(()->new RuntimeException("Department Not Found"));
 		
 		User user=new User();
 		user.setUsername(doctorDto.getUsername());
@@ -46,16 +47,16 @@ public class AdminServicesImp implements AdminServices {
 		userRepo.save(user);
 		
 		Doctor doctor=doctorMapper.mapToDoctor(doctorDto, user,department);
-		Doctor savedDoctor= doctorRepo.save(doctor);
-		return doctorMapper.mapToDoctorDto(savedDoctor);
+		 doctorRepo.save(doctor);
+		
 		
 	}
 
 	@Override
-	public DepartmentDto createDepartment(DepartmentDto departmentDto) {
+	public void createDepartment(DepartmentDto departmentDto) {
 		Department department=departmentMapper.mapToDepartment(departmentDto);
-		Department savedDepartment=departmentRepo.save(department);
-		return departmentMapper.mapToDepartmentDto(savedDepartment);
+		departmentRepo.save(department);
+		
 	}
 
 }

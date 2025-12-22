@@ -8,8 +8,8 @@ import com.DS.HospitalManagementSystem.Dto.DoctorDto;
 @Service
 public interface AdminServices {
 
-	DoctorDto registerDoctor(DoctorDto doctorDto);
+	void registerDoctor(DoctorDto doctorDto);
 	
-	DepartmentDto createDepartment(DepartmentDto departmentDto);
+	void createDepartment(DepartmentDto departmentDto);
 	
 }

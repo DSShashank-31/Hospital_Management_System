@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.DS.HospitalManagementSystem.Dto.DepartmentDto;
 import com.DS.HospitalManagementSystem.Dto.DoctorDto;
 import com.DS.HospitalManagementSystem.Entity.Patient;
 import com.DS.HospitalManagementSystem.services.AdminServices;
@@ -39,9 +40,19 @@ public class AdminController {
 	}
 	
 	@PostMapping("/registerDoctor")
-	public ResponseEntity<DoctorDto> registerDoctor(@RequestBody DoctorDto doctorDto)
+	public ResponseEntity<String> registerDoctor(@RequestBody DoctorDto doctorDto)
 	{
-		return new ResponseEntity<DoctorDto>(adminService.registerDoctor(doctorDto),HttpStatus.CREATED);
+		adminService.registerDoctor(doctorDto);
+		return ResponseEntity.ok("Doctor Created Successfully!!");
 	}
+	
+	@PostMapping("/createDepartment")
+	public ResponseEntity<String> createDepartment(DepartmentDto departmentDto)
+	{
+		adminService.createDepartment(departmentDto);
+		return ResponseEntity.ok("Department Created Successfully");
+	}
+	
+	
 	
 }
