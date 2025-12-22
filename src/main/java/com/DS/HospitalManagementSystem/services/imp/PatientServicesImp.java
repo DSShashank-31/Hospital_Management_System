@@ -30,7 +30,7 @@ public class PatientServicesImp implements PatientServices{
 	private UserRepo userRepo;
 
 	@Override
-	public PatientDto registerPatient(PatientDto patientDto) {
+	public void registerPatient(PatientDto patientDto) {
 		if(!patientDto.getPassword().equals(patientDto.getConfirmPassword()))
 		{
 			throw new RuntimeException("passwords do not match");
@@ -44,13 +44,8 @@ public class PatientServicesImp implements PatientServices{
 		
 		
 		Patient patient=PatientMapper.mapToPatient(patientDto,user);
-		Patient savedPatient=patientRepo.save(patient);
-		return PatientMapper.mapToPatientDto(savedPatient);
+		patientRepo.save(patient);
 	}
 
-	@Override
-	public List<Patient> getPatientDetails() {
-		List<Patient> patients=patientRepo.findAll();
-		return patients;
-	}
+	
 }

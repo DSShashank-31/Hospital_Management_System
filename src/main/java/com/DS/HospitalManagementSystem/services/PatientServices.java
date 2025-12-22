@@ -10,10 +10,10 @@ import com.DS.HospitalManagementSystem.Entity.Patient;
 public interface PatientServices {
 
 		
-		PatientDto registerPatient(PatientDto patientDto);
+		void registerPatient(PatientDto patientDto);
 
 		
-		List<Patient> getPatientDetails();
+		
 	
 
 }
