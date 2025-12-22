@@ -24,17 +24,6 @@ public class DoctorMapper {
 		return doctor;
 	}
 	
-	public DoctorDto mapToDoctorDto(Doctor doctor)
-	{
-		DoctorDto doctorDto=new DoctorDto();
-		doctorDto.setId(doctor.getId());
-		doctorDto.setName(doctor.getName());
-		doctorDto.setSpecialization(doctor.getSpecialization());
-		doctorDto.setPhone_number(doctor.getPhone_number());
-		doctorDto.setExperience(doctor.getExperience());
-		doctorDto.setDepartmentName(doctor.getDepartment().getName());
-		
-		return doctorDto;
-	}
+	
 	
 }
