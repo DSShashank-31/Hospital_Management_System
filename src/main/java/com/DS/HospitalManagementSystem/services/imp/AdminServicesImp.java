@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.DS.HospitalManagementSystem.Dto.DepartmentDto;
+import com.DS.HospitalManagementSystem.Dto.DepartmentResponseDto;
 import com.DS.HospitalManagementSystem.Dto.DoctorDto;
+import com.DS.HospitalManagementSystem.Dto.DoctorResponseDto;
 import com.DS.HospitalManagementSystem.Dto.PatientResopnseDto;
 import com.DS.HospitalManagementSystem.Entity.Department;
 import com.DS.HospitalManagementSystem.Entity.Doctor;
@@ -77,6 +79,18 @@ public class AdminServicesImp implements AdminServices {
 	public List<PatientResopnseDto> getAllPatients() {
 		List<Patient> patient=patientRepo.findAll();
 		return patient.stream().map((patients)->patientMapper.mapToPatientDto(patients)).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<DoctorResponseDto> getAllDoctors() {
+		List<Doctor> doctors=doctorRepo.findAll();
+		return doctors.stream().map((doctor)->doctorMapper.mapToDoctorDto(doctor)).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<DepartmentResponseDto> getAllDepartments() {
+		List<Department> departments=departmentRepo.findAll();
+		return departments.stream().map((department)->departmentMapper.mapToDepartmentDto(department)).collect(Collectors.toList());
 	}
 
 	

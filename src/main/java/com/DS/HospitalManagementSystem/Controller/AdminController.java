@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.DS.HospitalManagementSystem.Dto.DepartmentDto;
+import com.DS.HospitalManagementSystem.Dto.DepartmentResponseDto;
 import com.DS.HospitalManagementSystem.Dto.DoctorDto;
+import com.DS.HospitalManagementSystem.Dto.DoctorResponseDto;
 import com.DS.HospitalManagementSystem.Dto.PatientResopnseDto;
-import com.DS.HospitalManagementSystem.Entity.Patient;
 import com.DS.HospitalManagementSystem.services.AdminServices;
 import com.DS.HospitalManagementSystem.services.PatientServices;
 
@@ -54,6 +55,18 @@ public class AdminController {
 	public ResponseEntity<List<PatientResopnseDto>> getAllPatients()
 	{
 		return new ResponseEntity<List<PatientResopnseDto>>(adminService.getAllPatients(),HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("doctors")
+	public ResponseEntity<List<DoctorResponseDto>> getAllDoctors()
+	{
+		return new ResponseEntity<List<DoctorResponseDto>>(adminService.getAllDoctors(),HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/departments")
+	public ResponseEntity<List<DepartmentResponseDto>> getAllDepartments()
+	{
+		return new ResponseEntity<List<DepartmentResponseDto>>(adminService.getAllDepartments(),HttpStatus.ACCEPTED);
 	}
 	
 	

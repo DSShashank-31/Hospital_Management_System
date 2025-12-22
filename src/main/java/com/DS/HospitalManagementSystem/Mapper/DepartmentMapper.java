@@ -3,6 +3,7 @@ package com.DS.HospitalManagementSystem.Mapper;
 import org.springframework.stereotype.Component;
 
 import com.DS.HospitalManagementSystem.Dto.DepartmentDto;
+import com.DS.HospitalManagementSystem.Dto.DepartmentResponseDto;
 import com.DS.HospitalManagementSystem.Entity.Department;
 
 @Component
@@ -16,9 +17,9 @@ public class DepartmentMapper {
 		
 		return department;
 	}
-	public DepartmentDto mapToDepartmentDto(Department department)
+	public DepartmentResponseDto mapToDepartmentDto(Department department)
 	{
-		DepartmentDto departmentDto=new DepartmentDto();
+		DepartmentResponseDto departmentDto=new DepartmentResponseDto();
 		departmentDto.setId(department.getId());
 		departmentDto.setName(department.getName());
 		departmentDto.setDescription(department.getDescription());
