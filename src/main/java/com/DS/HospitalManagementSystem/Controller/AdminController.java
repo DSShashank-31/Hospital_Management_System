@@ -57,7 +57,7 @@ public class AdminController {
 		return new ResponseEntity<List<PatientResopnseDto>>(adminService.getAllPatients(),HttpStatus.ACCEPTED);
 	}
 	
-	@GetMapping("doctors")
+	@GetMapping("/doctors")
 	public ResponseEntity<List<DoctorResponseDto>> getAllDoctors()
 	{
 		return new ResponseEntity<List<DoctorResponseDto>>(adminService.getAllDoctors(),HttpStatus.ACCEPTED);
