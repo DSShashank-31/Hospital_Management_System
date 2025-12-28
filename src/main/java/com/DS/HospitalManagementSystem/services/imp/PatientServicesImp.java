@@ -6,10 +6,12 @@ package com.DS.HospitalManagementSystem.services.imp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.DS.HospitalManagementSystem.Dto.PatientDto;
 import com.DS.HospitalManagementSystem.Entity.Patient;
+import com.DS.HospitalManagementSystem.Entity.Role;
 import com.DS.HospitalManagementSystem.Entity.User;
 import com.DS.HospitalManagementSystem.Mapper.PatientMapper;
 import com.DS.HospitalManagementSystem.Repository.PatientRepo;
@@ -22,7 +24,8 @@ public class PatientServicesImp implements PatientServices{
 	@Autowired
 	private PatientRepo patientRepo;
 	
-	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	
 	
@@ -38,8 +41,8 @@ public class PatientServicesImp implements PatientServices{
 		
 		User user=new User();
 		user.setUsername(patientDto.getUsername());
-		user.setPassword(patientDto.getPassword());
-		
+		user.setPassword(passwordEncoder.encode(patientDto.getPassword()));
+		user.setRole(Role.PATIENT);
 		userRepo.save(user);
 		
 		
