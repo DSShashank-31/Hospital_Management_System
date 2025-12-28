@@ -17,6 +17,7 @@ import com.DS.HospitalManagementSystem.Dto.PatientResopnseDto;
 import com.DS.HospitalManagementSystem.Entity.Department;
 import com.DS.HospitalManagementSystem.Entity.Doctor;
 import com.DS.HospitalManagementSystem.Entity.Patient;
+import com.DS.HospitalManagementSystem.Entity.Role;
 import com.DS.HospitalManagementSystem.Entity.User;
 import com.DS.HospitalManagementSystem.Mapper.DepartmentMapper;
 import com.DS.HospitalManagementSystem.Mapper.DoctorMapper;
@@ -60,6 +61,7 @@ public class AdminServicesImp implements AdminServices {
 		User user=new User();
 		user.setUsername(doctorDto.getUsername());
 		user.setPassword(doctorDto.getPassword());
+		user.setRole(Role.DOCTOR);
 		userRepo.save(user);
 		
 		Doctor doctor=doctorMapper.mapToDoctor(doctorDto, user,department);

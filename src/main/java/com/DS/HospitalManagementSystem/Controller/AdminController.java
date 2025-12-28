@@ -23,8 +23,7 @@ import com.DS.HospitalManagementSystem.services.PatientServices;
 @RequestMapping("/admin")
 public class AdminController {
 
-	@Autowired
-	private PatientServices patientServices;
+
 	
 	@Autowired
 	private AdminServices adminService;
