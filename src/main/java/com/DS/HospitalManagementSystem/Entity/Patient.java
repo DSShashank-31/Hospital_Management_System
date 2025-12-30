@@ -2,6 +2,7 @@ package com.DS.HospitalManagementSystem.Entity;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,7 +33,7 @@ public class Patient {
 	@JoinColumn(name="user_id",nullable = false)
 	private User user;
 	
-	@OneToMany(mappedBy = "patient")
+	@OneToMany(mappedBy = "patient",cascade = CascadeType.ALL)
 	private List<Appoitment> appointments;
 	
 	
