@@ -27,6 +27,7 @@ public class Appoitment {
 	@Column(nullable = false)
 	private LocalDateTime appointmentTime;
 	
+	private String reason;
 	
 	@ManyToOne
 	@JoinColumn(nullable = false)
