@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.DS.HospitalManagementSystem.Dto.AppoitmentDto;
 import com.DS.HospitalManagementSystem.Dto.PatientDto;
+import com.DS.HospitalManagementSystem.Entity.Appoitment;
+import com.DS.HospitalManagementSystem.services.AppoitmentService;
 import com.DS.HospitalManagementSystem.services.PatientServices;
 
 @RestController
@@ -21,6 +24,9 @@ public class PatientController {
 	
 	@Autowired
 	private PatientServices patientService;
+	
+	@Autowired
+	private AppoitmentService appoitmentService;
 	
 	@PostMapping("/register")
 	public ResponseEntity<String> registerPatient(@RequestBody PatientDto patientDto)
@@ -33,5 +39,10 @@ public class PatientController {
 	public ResponseEntity<String> dashboard()
 	{
 		return ResponseEntity.ok("welcome patient");
+	}
+	
+	public ResponseEntity<Appoitment> bookAppoitment(@RequestBody AppoitmentDto appoitmentDto)
+	{
+		return ResponseEntity.ok(appoitmentService.bookAppoitment(appoitmentDto));
 	}
 }
