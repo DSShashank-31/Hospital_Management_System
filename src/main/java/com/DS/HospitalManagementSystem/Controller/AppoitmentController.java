@@ -12,18 +12,9 @@ import com.DS.HospitalManagementSystem.Dto.AppoitmentDto;
 import com.DS.HospitalManagementSystem.Entity.Appoitment;
 import com.DS.HospitalManagementSystem.services.AppoitmentService;
 
-@RestController
-@RequestMapping("/appointment")
+
+
 public class AppoitmentController {
 	
-	@Autowired
-	private AppoitmentService appoitmentService;
 	
-	
-	@PostMapping("/bookAppoitments")
-	public ResponseEntity<String> bookAppoitment(@RequestBody AppoitmentDto appoitmentDto)
-	{
-		appoitmentService.bookAppoitment(appoitmentDto);
-		return ResponseEntity.ok("Appointment is booked");
-	}
 }
