@@ -10,6 +10,6 @@ import com.DS.HospitalManagementSystem.Entity.Appoitment;
 public interface AppoitmentService {
 
 	
-	Appoitment bookAppoitment(AppoitmentDto appoitmentDto);
+	void bookAppoitment(AppoitmentDto appoitmentDto);
 
 }

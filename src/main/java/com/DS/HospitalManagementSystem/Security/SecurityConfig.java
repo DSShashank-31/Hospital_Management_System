@@ -23,8 +23,8 @@ public class SecurityConfig {
 			.authorizeHttpRequests(request->
 			request
 					.requestMatchers("/patient/register").permitAll()
+					.requestMatchers("/admin/**").permitAll()
 					.requestMatchers("/patient/**").hasRole("PATIENT")
-					.requestMatchers("/admin/**").hasRole("DOCTOR")
 					.anyRequest().authenticated()
 					)
 			.httpBasic(Customizer.withDefaults())

@@ -41,8 +41,10 @@ public class PatientController {
 		return ResponseEntity.ok("welcome patient");
 	}
 	
-	public ResponseEntity<Appoitment> bookAppoitment(@RequestBody AppoitmentDto appoitmentDto)
+	@PostMapping("/book")
+	public ResponseEntity<String> bookAppoitment(@RequestBody AppoitmentDto appoitmentDto)
 	{
-		return ResponseEntity.ok(appoitmentService.bookAppoitment(appoitmentDto));
+		appoitmentService.bookAppoitment(appoitmentDto);
+		return ResponseEntity.ok("appointment booked");
 	}
 }

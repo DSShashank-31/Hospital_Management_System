@@ -1,5 +1,6 @@
 package com.DS.HospitalManagementSystem.Entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -27,7 +28,7 @@ public class Appoitment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable = false)
-	private LocalDateTime appointmentTime;
+	private LocalDate appointmentTime;
 	
 	private String reason;
 	

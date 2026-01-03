@@ -1,6 +1,7 @@
 package com.DS.HospitalManagementSystem.services.imp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.DS.HospitalManagementSystem.Dto.AppoitmentDto;
 import com.DS.HospitalManagementSystem.Entity.Appoitment;
@@ -12,6 +13,7 @@ import com.DS.HospitalManagementSystem.Repository.DoctorRepository;
 import com.DS.HospitalManagementSystem.Repository.PatientRepo;
 import com.DS.HospitalManagementSystem.services.AppoitmentService;
 
+@Service
 public class AppoitmentServiceImp implements AppoitmentService {
 
 	@Autowired
@@ -24,7 +26,7 @@ public class AppoitmentServiceImp implements AppoitmentService {
 	private AppoitmentRepository appoitmentRepository;
 	
 	@Override
-	public Appoitment bookAppoitment(AppoitmentDto appoitmentDto) {
+	public void bookAppoitment(AppoitmentDto appoitmentDto) {
 		Patient patient= patientRepo.findById(appoitmentDto.getPatient_id()).orElseThrow();
 		Doctor doctor=doctorRepo.findById(appoitmentDto.getDoctor_id()).orElseThrow();
 		
@@ -35,7 +37,7 @@ public class AppoitmentServiceImp implements AppoitmentService {
 		appoitments.setReason(appoitmentDto.getReason());
 		appoitments.setAppoitmentStatus(AppoitmentStatus.PENDING);
 		
-		return appoitmentRepository.save(appoitments);
+		 appoitmentRepository.save(appoitments);
 		
 	}
 
